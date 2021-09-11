@@ -1,0 +1,151 @@
+set nocp  " ensure that legacy compatibility mode is off
+filetype off
+
+
+set encoding=utf-8  " 默认的字符编码
+set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,default  " 自动识别文件编码
+set fileformats=unix,dos,mac  " 文本格式优先unix风格
+
+
+
+
+
+set shortmess=atI  " 关闭欢迎页面
+set backspace=2
+set history=1000  " 保存历史命令行数
+set noswapfile  " 关闭swap
+set updatetime=100  " 刷新率100ms ?
+set nobackup  " 关闭备份
+set noerrorbells  " 关闭报错声音
+set visualbell  " 报错 视觉提示
+set autoread  " 文件监视。如果在编辑过程中文件发生外部改变，就会发出提示
+set listchars=tab:»■,trail:■  " 如果行尾有多余的空格、包括Tab 键，该配置将让这些空格显示成可见的小方块
+set list
+
+
+set laststatus=2  " 始终显示状态栏
+set showcmd  " 在最下面状态栏显示正在输入的命令
+set showmode  " 在左下角的状态栏显示 --INSERT-- 之类的状态
+
+
+set showmatch  " 当输入一个左括号时自动匹配右括号
+set ignorecase  " 查找忽略大小写
+set smartcase  " 如果有一个大写字母，则切换到大小写敏感查找
+
+
+set term=xterm-256color  " 启用256色
+set spell spelllang=en_us  " 单词的拼写检查
+
+
+set autoindent  " 按回车键，缩进自动跟上一行保持一致
+set softtabstop=2  " Tab 为2个空格
+set number  " 显示行号
+set numberwidth=4  " 行号显示宽度
+set autoread  " 自动读取文件(如果文本改变，自动更新
+
+
+" 热键设置
+let mapleader = ','  " 定义 <leader> 键
+" w!! 用sudo权限保存文件
+cmap w!! w !sudo tee > /dev/null %
+" ,w 保存当前文件
+nnoremap <leader>w :w<CR>
+
+
+"return" 2>&- || "exit"
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'kien/ctrlp.vim'
+Plug 'morhetz/gruvbox'
+Plug 'mileszs/ack.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'preservim/nerdcommenter'
+
+call plug#end()
+
+
+"======================================================================================="
+" gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox
+
+
+"====================================================================================="
+" ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+
+"====================================================================================="
+" vim-airline
+let g:airline_powerline_fonts = 1
+" theme
+let g:airline_theme='deus'
+let g:bufferline_echo = 0
+let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ }
+
+" 关闭检测空格
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_left_alt_sep =  ''
+let g:airline_exclude_preview = 1
+let g:airline#extensions#hunks#non_zero_only = 1
+let g:airline#extensions#ale#enabled = 0
+let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr'])
+
+
+
+
+
+
+
+set laststatus=2  " 始终显示状态栏
+
+
+"====================================================================================="
+" 帮助语言为中文
+set helplang=cn
+
+
+"====================================================================================="
+" NERD Commenter
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+
+" ,cc  注释文本
+" ,cu  解开注释
+" ,c<space> 注释/反注释
+
+
+"====================================================================================="
+
+
+
+
