@@ -102,14 +102,6 @@ let g:airline#extensions#ale#enabled = 0
 let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr'])
 
 
-
-
-
-
-
-set laststatus=2  " 始终显示状态栏
-
-
 "====================================================================================="
 " 帮助语言为中文
 set helplang=cn
