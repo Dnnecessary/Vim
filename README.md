@@ -6,7 +6,7 @@ If you do web dev a lot...yes
 ### Install
 1. clone the repo
 ```
-git clone https://github.com/Dnnecessary/Vim.git
+https://github.com/Dnnecessary/my_vim.git
 ```
 </br>
 
@@ -18,9 +18,9 @@ mv my-vim ~/.vim
 
 3. set up `~/.vimrc`, have a fake `.vimrc` in your `$HOME`
 ```
- cd  Vim
- cp  vimrc   ~/.vimrc
+ cd  ~/.vim
+ cp  vimrc.bak   ~/.vimrc
 ```
 
 
-update 
+update **Sep 11**
