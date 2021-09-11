@@ -21,3 +21,6 @@ mv my-vim ~/.vim
  cd  Vim
  cp  vimrc   ~/.vimrc
 ```
+
+
+update 
